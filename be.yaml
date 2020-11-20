@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    run: be-challenge
+  name: be-challenge
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      run: be-challenge
+  template:
+    metadata:
+      labels:
+        run: be-challenge
+    spec:
+      containers:
+      - image: awselscpt/backend
+        name: be-challenge

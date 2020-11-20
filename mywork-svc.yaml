@@ -1,0 +1,47 @@
+apiVersion: v1
+kind: Service
+metadata:
+  creationTimestamp: "2020-11-20T20:39:22Z"
+  labels:
+    run: mywork
+  managedFields:
+  - apiVersion: v1
+    fieldsType: FieldsV1
+    fieldsV1:
+      f:metadata:
+        f:labels:
+          .: {}
+          f:run: {}
+      f:spec:
+        f:ports:
+          .: {}
+          k:{"port":3000,"protocol":"TCP"}:
+            .: {}
+            f:port: {}
+            f:protocol: {}
+            f:targetPort: {}
+        f:selector:
+          .: {}
+          f:run: {}
+        f:sessionAffinity: {}
+        f:type: {}
+    manager: kubectl
+    operation: Update
+    time: "2020-11-20T20:39:22Z"
+  name: mywork-svc
+  namespace: web
+  resourceVersion: "25929"
+  selfLink: /api/v1/namespaces/web/services/mywork-svc
+  uid: e3fd659b-c956-44f6-a952-7bdf805701ff
+spec:
+  clusterIP: 10.100.188.107
+  ports:
+  - port: 3000
+    protocol: TCP
+    targetPort: 5678
+  selector:
+    run: mywork
+  sessionAffinity: None
+  type: ClusterIP
+status:
+  loadBalancer: {}

@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    run: fe-challenge
+  name: fe-challenge
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      run: fe-challenge
+  template:
+    metadata:
+      labels:
+        run: fe-challenge
+    spec:
+      containers:
+      - image: rubashanti/frontend-challenge
+        name: fe-challenge
+        ports:
+          - containerPort: 4567
+        env:
+        - name: backend_service_host
+          value: "be-svc.backend"
+        - name: backend_service_port
+          value: "5000"

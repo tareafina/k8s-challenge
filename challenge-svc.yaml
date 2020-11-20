@@ -1,0 +1,47 @@
+apiVersion: v1
+kind: Service
+metadata:
+  creationTimestamp: "2020-11-20T20:39:27Z"
+  labels:
+    run: challenge
+  managedFields:
+  - apiVersion: v1
+    fieldsType: FieldsV1
+    fieldsV1:
+      f:metadata:
+        f:labels:
+          .: {}
+          f:run: {}
+      f:spec:
+        f:ports:
+          .: {}
+          k:{"port":3001,"protocol":"TCP"}:
+            .: {}
+            f:port: {}
+            f:protocol: {}
+            f:targetPort: {}
+        f:selector:
+          .: {}
+          f:run: {}
+        f:sessionAffinity: {}
+        f:type: {}
+    manager: kubectl
+    operation: Update
+    time: "2020-11-20T20:39:27Z"
+  name: challenge-svc
+  namespace: web
+  resourceVersion: "25945"
+  selfLink: /api/v1/namespaces/web/services/challenge-svc
+  uid: 955ca848-a151-42ea-b7ef-82cc0e59f27e
+spec:
+  clusterIP: 10.100.255.192
+  ports:
+  - port: 3001
+    protocol: TCP
+    targetPort: 5678
+  selector:
+    run: challenge
+  sessionAffinity: None
+  type: ClusterIP
+status:
+  loadBalancer: {}

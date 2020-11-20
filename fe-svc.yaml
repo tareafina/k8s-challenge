@@ -1,0 +1,67 @@
+apiVersion: v1
+kind: Service
+metadata:
+  creationTimestamp: "2020-11-20T19:47:11Z"
+  finalizers:
+  - service.kubernetes.io/load-balancer-cleanup
+  labels:
+    run: fe-challenge
+  managedFields:
+  - apiVersion: v1
+    fieldsType: FieldsV1
+    fieldsV1:
+      f:metadata:
+        f:labels:
+          .: {}
+          f:run: {}
+      f:spec:
+        f:externalTrafficPolicy: {}
+        f:ports:
+          .: {}
+          k:{"port":80,"protocol":"TCP"}:
+            .: {}
+            f:port: {}
+            f:protocol: {}
+            f:targetPort: {}
+        f:selector:
+          .: {}
+          f:run: {}
+        f:sessionAffinity: {}
+        f:type: {}
+    manager: kubectl
+    operation: Update
+    time: "2020-11-20T19:47:11Z"
+  - apiVersion: v1
+    fieldsType: FieldsV1
+    fieldsV1:
+      f:metadata:
+        f:finalizers:
+          .: {}
+          v:"service.kubernetes.io/load-balancer-cleanup": {}
+      f:status:
+        f:loadBalancer:
+          f:ingress: {}
+    manager: kube-controller-manager
+    operation: Update
+    time: "2020-11-20T19:47:12Z"
+  name: fe-svc
+  namespace: web
+  resourceVersion: "16174"
+  selfLink: /api/v1/namespaces/web/services/fe-svc
+  uid: 2061d02b-7b5c-4890-9cac-1d54be448f60
+spec:
+  clusterIP: 10.100.77.106
+  externalTrafficPolicy: Cluster
+  ports:
+  - nodePort: 30783
+    port: 80
+    protocol: TCP
+    targetPort: 4567
+  selector:
+    run: fe-challenge
+  sessionAffinity: None
+  type: LoadBalancer
+status:
+  loadBalancer:
+    ingress:
+    - hostname: a2061d02b7b5c48909cac1d54be448f6-1437137311.eu-central-1.elb.amazonaws.com

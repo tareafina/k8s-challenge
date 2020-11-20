@@ -1,0 +1,47 @@
+apiVersion: v1
+kind: Service
+metadata:
+  creationTimestamp: "2020-11-20T19:08:33Z"
+  labels:
+    run: be-challenge
+  managedFields:
+  - apiVersion: v1
+    fieldsType: FieldsV1
+    fieldsV1:
+      f:metadata:
+        f:labels:
+          .: {}
+          f:run: {}
+      f:spec:
+        f:ports:
+          .: {}
+          k:{"port":5000,"protocol":"TCP"}:
+            .: {}
+            f:port: {}
+            f:protocol: {}
+            f:targetPort: {}
+        f:selector:
+          .: {}
+          f:run: {}
+        f:sessionAffinity: {}
+        f:type: {}
+    manager: kubectl
+    operation: Update
+    time: "2020-11-20T19:08:33Z"
+  name: be-svc
+  namespace: backend
+  resourceVersion: "8907"
+  selfLink: /api/v1/namespaces/backend/services/be-svc
+  uid: 92f2c394-f116-4a1d-a2b2-e3ef96cb1596
+spec:
+  clusterIP: 10.100.10.85
+  ports:
+  - port: 5000
+    protocol: TCP
+    targetPort: 5000
+  selector:
+    run: be-challenge
+  sessionAffinity: None
+  type: ClusterIP
+status:
+  loadBalancer: {}

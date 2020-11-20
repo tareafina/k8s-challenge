@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    run: mywork
+  name: mywork
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      run: mywork
+  template:
+    metadata:
+      labels:
+        run: mywork
+    spec:
+      containers:
+      - image: hashicorp/http-echo
+        name: mywork
+        ports:
+          - containerPort: 5678
+        args: ["-text=It works"]

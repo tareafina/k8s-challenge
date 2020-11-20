@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    run: challenge
+  name: challenge
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      run: challenge
+  template:
+    metadata:
+      labels:
+        run: challenge
+    spec:
+      containers:
+      - image: hashicorp/http-echo
+        name: challenge
+        ports:
+          - containerPort: 5678
+        args: ["-text=challenge"]
